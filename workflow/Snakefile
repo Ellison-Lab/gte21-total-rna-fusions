@@ -1,0 +1,33 @@
+import sys
+import peppy
+from Bio import SeqIO
+
+configfile: "config/config.yaml"
+pepfile: "config/pep.yaml"
+
+SAMPLES = [x.sample_name for x in pep.samples]
+SUBSAMPLE_TABLE = pep.subsample_table[0]
+#SUBSAMPLE_NAMES = [expand("{s}-{ss}",s=x, ss=SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == x] for x in SAMPLES]
+
+MAIN_CONFIG = config.get("MAIN_CONFIG",'config/config.yaml')
+
+rule all:
+    input:
+        #expand("results/fastq/{s}_{ss}_r{e}.trimmed.fq.gz",s=SAMPLES,e=[1,2],ss="rep1"),
+        expand("results/star/{s}",s=SAMPLES),
+        expand("results/arriba/{s}/fusions.tsv",s=SAMPLES),
+        #"results/star-seqr",
+        #"results/trinity",
+        #"results/jaffa",
+        #"results/soapfuse"
+
+def get_from_pep(wc, field):
+    tmp = SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == wc.sample]
+    tmp2 = tmp[tmp['subsample_name'] == wc.subsample]
+    print(wc.sample)
+    return tmp2.get(field)
+
+
+
+include: "rules/alignment.smk"
+include: "rules/arriba.smk"

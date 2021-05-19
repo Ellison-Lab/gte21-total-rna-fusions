@@ -1,0 +1,5 @@
+sample_name,subsample_name,fastq_r1,fastq_r2
+w1118_testes,rep1,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep1_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep1_2.fq.gz
+w1118_testes,rep2,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep2_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep2_2.fq.gz
+w1118_testes,rep3,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep3_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep3_3.fq.gz
+w1118_testes,rep4,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep4_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep4_4.fq.gz

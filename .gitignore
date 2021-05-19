@@ -1,0 +1,11 @@
+.snakemake
+work/
+test.yaml
+*html
+multiqc_data
+work/
+results/
+ftp*/
+.Rproj.user
+data
+*~
