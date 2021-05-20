@@ -8,6 +8,10 @@ rule arriba:
         discarded = "results/arriba/{sample}/fusions-discarded.tsv"
     singularity:
         "docker://quay.io/biocontainers/arriba:2.1.0--h3198e80_1"
+    resources:
+        time=480,
+        mem=64000,
+        cpus=24
     shell:
         """
         arriba -x {input.aln}/Aligned.sortedByCoord.out.bam \

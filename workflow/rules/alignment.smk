@@ -65,13 +65,13 @@ rule star_aln:
     output:
         directory("results/star/{sample}/")
     threads:
-        12
+        24
     singularity:
         "docker://quay.io/biocontainers/star:2.7.9a--h9ee0642_0"
     resources:
-        time=240,
-        mem=20000,
-        cpus=12
+        time=480,
+        mem=64000,
+        cpus=24
     shell:
         """
         mkdir -p {output}
