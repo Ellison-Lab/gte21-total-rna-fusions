@@ -1,6 +1,5 @@
 def get_fqs(s,end="r1"):
     tmp = SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == s]
-    print(tmp)
     fqs = tmp.get("fastq_"+ end)
     return fqs
 
@@ -48,6 +47,12 @@ rule star_idx:
         directory("results/idx/star")
     singularity:
         "docker://quay.io/biocontainers/star:2.7.9a--h9ee0642_0"
+    threads:
+        24
+    resources:
+        time=60,
+        mem=20000,
+        cpus=24
     shell:
         """
         mkdir -p {output} &&
@@ -65,13 +70,13 @@ rule star_aln:
     output:
         directory("results/star/{sample}/")
     threads:
-        24
+        12
     singularity:
         "docker://quay.io/biocontainers/star:2.7.9a--h9ee0642_0"
     resources:
-        time=480,
+        time=960,
         mem=64000,
-        cpus=24
+        cpus=12
     shell:
         """
         mkdir -p {output}

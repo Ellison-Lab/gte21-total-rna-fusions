@@ -19,7 +19,6 @@ rule all:
 def get_from_pep(wc, field):
     tmp = SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == wc.sample]
     tmp2 = tmp[tmp['subsample_name'] == wc.subsample]
-    print(wc.sample)
     return tmp2.get(field)
 
 include: "rules/alignment.smk"
