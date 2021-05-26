@@ -100,3 +100,17 @@ rule star_aln:
         --chimSegmentReadGapMax 3 \
         --chimMultimapNmax 50
         """
+
+rule samtools_idx:
+    input:
+        rules.star_aln.output
+    output:
+        touch("results/{sample}.bam.indexed")
+    #singularity:
+        #"docker://quay.io/biocontainers/samtools:0.1.19--h270b39a_9"
+    conda:
+        "../envs/samtools.yaml"
+    shell:
+        """
+        samtools index -@ {threads} {input}/Aligned.sortedByCoord.out.bam
+        """

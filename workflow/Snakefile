@@ -14,7 +14,7 @@ MAIN_CONFIG = config.get("MAIN_CONFIG",'config/config.yaml')
 rule all:
     input:
         expand("results/star/{s}",s=SAMPLES),
-        expand("results/arriba/{s}/fusions.tsv",s=SAMPLES),
+        expand("results/arriba-viz/{s}/fusions.pdf",s=SAMPLES),
 
 def get_from_pep(wc, field):
     tmp = SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == wc.sample]
