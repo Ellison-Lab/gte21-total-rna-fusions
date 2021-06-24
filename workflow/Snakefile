@@ -11,6 +11,14 @@ SUBSAMPLE_TABLE = pep.subsample_table
 
 MAIN_CONFIG = config.get("MAIN_CONFIG",'config/config.yaml')
 
+subworkflow custom_genome:
+    workdir:
+        "../../gte21-custom-genome/"
+    snakefile:
+        "../../gte21-custom-genome/workflow/Snakefile"
+    #configfile:
+    #    MAIN_CONFIG
+
 rule all:
     input:
         expand("results/star/{s}",s=SAMPLES),
