@@ -41,8 +41,8 @@ rule trim_pe:
 
 rule star_idx:
     input:
-        fa = config.get("GENOME"),
-        gtf = config.get("GTF")
+        fa = custom_genome('results/custom-genome/combined.fasta'),
+        gtf = custom_genome('results/custom-genome/combined.fixed.gtf')
     output:
         directory("results/idx/star")
     singularity:
