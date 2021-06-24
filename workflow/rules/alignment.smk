@@ -3,9 +3,22 @@ def get_fqs(s,end="r1"):
     fqs = tmp.get("fastq_"+ end)
     return fqs
 
+rule get_fastqs:
+    output:
+        r1 = "results/fastq/{sample}/{subsample}_r1.fastq.gz",
+        r2 = "results/fastq/{sample}/{subsample}_r2.fastq.gz"
+    params:
+        r1 = lambda wc: get_fastqs(wc, "r1"),
+        r2 = lambda wc: get_fastqs(wc, "r2"),
+    shell:
+        """
+        wget -O {output.r1} {params.r1} &&
+        wget -O {output.r2} {params.r2}
+        """
+
 rule concat_fqs:
     input:
-        lambda wc: get_fqs(wc.sample,wc.end),
+        "results/fastq/{sample}/{subsample}_{end}.fastq.gz"
     output:
         temp("results/fastq-concat/{sample}_{end}.fq.gz")
     shell:

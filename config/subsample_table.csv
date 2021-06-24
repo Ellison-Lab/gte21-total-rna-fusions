@@ -1,5 +1,5 @@
 sample_name,subsample_name,fastq_r1,fastq_r2
-w1118_testes_01,rep1,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep1_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep1_2.fq.gz
-w1118_testes_02,rep1,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep2_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep2_2.fq.gz
-w1118_testes_03,rep1,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep3_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep3_2.fq.gz
-w1118_testes_04,rep1,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep4_1.fq.gz,/scratch/mal456/TE-proj-reorg/data/rnaseq/LWG012_w1118_testes_totalRNA_rep4_2.fq.gz
+w1118_testes,rep1,https://sra-download.ncbi.nlm.nih.gov/traces/sra64/SRZ/014470/SRR14470605/LWG012_w1118_testes_totalRNA_rep1_1.fq.gz,https://sra-download.ncbi.nlm.nih.gov/traces/sra64/SRZ/014470/SRR14470605/LWG012_w1118_testes_totalRNA_rep1_2.fq.gz
+w1118_testes,rep2,https://sra-download.ncbi.nlm.nih.gov/traces/sra1/SRZ/014470/SRR14470606/LWG012_w1118_testes_totalRNA_rep2_1.fq.gz,https://sra-download.ncbi.nlm.nih.gov/traces/sra1/SRZ/014470/SRR14470606/LWG012_w1118_testes_totalRNA_rep2_2.fq.gz
+w1118_testes,rep3,https://sra-download.ncbi.nlm.nih.gov/traces/sra53/SRZ/014470/SRR14470607/LWG012_w1118_testes_totalRNA_rep3_1.fq.gz,https://sra-download.ncbi.nlm.nih.gov/traces/sra53/SRZ/014470/SRR14470607/LWG012_w1118_testes_totalRNA_rep3_2.fq.gz
+w1118_testes,rep4,https://sra-download.ncbi.nlm.nih.gov/traces/sra49/SRZ/014470/SRR14470608/LWG012_w1118_testes_totalRNA_rep4_1.fq.gz,https://sra-download.ncbi.nlm.nih.gov/traces/sra49/SRZ/014470/SRR14470608/LWG012_w1118_testes_totalRNA_rep4_2.fq.gz
