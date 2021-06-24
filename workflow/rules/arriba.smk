@@ -1,8 +1,8 @@
 rule arriba:
     input:
         aln = rules.star_aln.output,
-        genome = config.get("GENOME"),
-        gtf = config.get("GTF")
+        genome = custom_genome('results/custom-genome/combined.fasta'),
+        gtf = custom_genome('results/custom-genome/combined.fixed.gtf')
     output:
         fus = "results/arriba/{sample}/fusions.tsv",
         discarded = "results/arriba/{sample}/fusions-discarded.tsv"
@@ -38,13 +38,13 @@ rule arriba_plot:
         bam = rules.star_aln.output,
         bai = rules.samtools_idx.output,
         fusions = rules.arriba_y_fusions_filt.output,
-        gtf = config.get("GTF"),
-        genome = config.get("GENOME")
+        genome = custom_genome('results/custom-genome/combined.fasta'),
+        gtf = custom_genome('results/custom-genome/combined.fixed.gtf')
     output:
         "results/arriba-viz/{sample}/fusions.pdf"
-    singularity:                                                                                    
+    singularity:
         "docker://quay.io/biocontainers/arriba:2.1.0--h3198e80_1"
     shell:
         """
-	draw_fusions.R --fusions={input.fusions} --alignments={input.bam}/Aligned.sortedByCoord.out.bam --annotation={input.gtf} --output={output} 
+	draw_fusions.R --fusions={input.fusions} --alignments={input.bam}/Aligned.sortedByCoord.out.bam --annotation={input.gtf} --output={output}
         """
