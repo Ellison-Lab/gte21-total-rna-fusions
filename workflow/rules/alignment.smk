@@ -18,7 +18,7 @@ rule get_fastqs:
 
 rule concat_fqs:
     input:
-        "results/fastq/{sample}/{subsample}_{end}.fastq.gz"
+        expand("results/fastq/{s}/{ss}_{end}.fastq.gz",s=wc.sample,end=wc.end, ss = SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == wc.sample])
     output:
         temp("results/fastq-concat/{sample}_{end}.fq.gz")
     shell:
