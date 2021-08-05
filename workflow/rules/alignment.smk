@@ -1,15 +1,17 @@
 def get_fqs(s,end="r1"):
     tmp = SUBSAMPLE_TABLE[SUBSAMPLE_TABLE['sample_name'] == s]
-    fqs = tmp.get("fastq_"+ end)
+    fqs = tmp.get("fastq_"+ end).tolist()
     return fqs
 
+# this is ok because we know there's only 1 subsample per sample, but otherwise we
+# need a better approach...
 rule get_fastqs:
     output:
         r1 = "results/fastq/{sample}/{subsample}_r1.fastq.gz",
         r2 = "results/fastq/{sample}/{subsample}_r2.fastq.gz"
     params:
-        r1 = lambda wc: get_fqs(wc, "r1"),
-        r2 = lambda wc: get_fqs(wc, "r2"),
+        r1 = lambda wc: get_fqs(wc.sample, "r1"),
+        r2 = lambda wc: get_fqs(wc.sample, "r2"),
     shell:
         """
         wget -O {output.r1} {params.r1} &&
