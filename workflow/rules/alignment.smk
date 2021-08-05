@@ -8,8 +8,8 @@ rule get_fastqs:
         r1 = "results/fastq/{sample}/{subsample}_r1.fastq.gz",
         r2 = "results/fastq/{sample}/{subsample}_r2.fastq.gz"
     params:
-        r1 = lambda wc: get_fastqs(wc, "r1"),
-        r2 = lambda wc: get_fastqs(wc, "r2"),
+        r1 = lambda wc: get_fqs(wc, "r1"),
+        r2 = lambda wc: get_fqs(wc, "r2"),
     shell:
         """
         wget -O {output.r1} {params.r1} &&
